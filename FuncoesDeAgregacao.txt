@@ -1,0 +1,34 @@
+/*			exercicio 1			*/
+SELECT SUM(m.ESTOQUE) AS TOTAL_ESTOQUE
+FROM MEDICAMENTOS m 
+
+
+/*			exercicio 2			*/
+SELECT AVG(EXTRACT (YEAR FROM current_date) - EXTRACT(YEAR FROM t.DATA_NASCIMENTO)) AS MEDIA_IDADE
+FROM TUTOR t 
+
+
+/*			exercicio 3			*/
+SELECT MIN(m.preco) FROM MEDICAMENTOS m
+
+
+/*			exercicio 4			*/
+SELECT MAX(p.peso) FROM PACIENTE p 
+
+
+/*			exercicio 5			*/
+SELECT COUNT(t.id_tutor) FROM TUTOR t 
+
+
+/*			exercicio 6			*/
+SELECT m.UNIDADE, sum(m.preco * m.estoque) AS VALOR_TOTAL 
+FROM MEDICAMENTOS m 
+GROUP BY m.UNIDADE 
+
+
+/*			exercicio 7			*/
+SELECT i.ID_RECEITA
+	, sum(i.total_item)
+	FROM ITENSRECEITA i
+	GROUP BY i.ID_RECEITA 
+	HAVING  sum(i.total_item) > 100
